@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { IoCartOutline } from "react-icons/io5";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
