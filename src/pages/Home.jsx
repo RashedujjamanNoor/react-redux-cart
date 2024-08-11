@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { add } from "../store/cartSlice";
 
 const Home = () => {
   const [product, setProuct] = useState();
@@ -18,6 +20,12 @@ const Home = () => {
     data();
   }, []);
 
+  const dispatch = useDispatch();
+
+  const handleCart = (product) => {
+    dispatch(add(product));
+  };
+
   return (
     <div>
       <div className="md:mx-[10%]">
@@ -35,7 +43,10 @@ const Home = () => {
                     Description: {item.description}
                   </p>
                   <p className="mt-2">Price: ${item.price}</p>
-                  <button className="bg-blue-500 py-2 mt-1 rounded-xl font-bold text-white">
+                  <button
+                    className="bg-blue-500 py-2 mt-1 rounded-xl font-bold text-white"
+                    onClick={() => handleCart(item)}
+                  >
                     Add Cart
                   </button>
                 </div>
