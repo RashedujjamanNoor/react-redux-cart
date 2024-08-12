@@ -32,7 +32,7 @@ const Home = () => {
         <div className="text-3xl font-bold text-center border-b-2">
           <h1>Products</h1>
         </div>
-        <div className="md:grid grid-cols-4 justify-items-center">
+        <div className="flex flex-col justify-center items-center md:grid grid-cols-4 justify-items-center">
           {product &&
             product.map((item, index) => (
               <div key={index}>
