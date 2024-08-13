@@ -3,10 +3,10 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
-  const cartCounter = useSelector((state) => state.cart.length);
+  const cartCounter = useSelector((state) => state.cart.cartItem.length);
 
   return (
-    <div className="bg-slate-700 w-screen h-16 flex justify-center items-center overflow-hidden">
+    <div className="bg-slate-700 w-screen h-16 flex justify-center items-center overflow-hidden sticky top-0 ">
       <div className="w-3/4 flex justify-between items-center">
         <div>
           <h1 className="font-bold text-white text-3xl">Shop.</h1>

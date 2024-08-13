@@ -40,11 +40,11 @@ const Home = () => {
                   <img src={item.images} alt="" className="w-96 " />
                   <h1 className="font-bold">{item.title}</h1>
                   <p className="text-sm font-semibold text-justify">
-                    Description: {item.description}
+                    Description: {item.description.substring(0, 100)}...
                   </p>
                   <p className="mt-2">Price: ${item.price}</p>
                   <button
-                    className="bg-blue-500 py-2 mt-1 rounded-xl font-bold text-white"
+                    className="bg-blue-500 py-2 mt-1 rounded-xl font-bold text-white hover:bg-blue-600 duration-150"
                     onClick={() => handleCart(item)}
                   >
                     Add Cart

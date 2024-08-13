@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { MdDelete } from "react-icons/md";
@@ -6,10 +6,14 @@ import { remove } from "../store/cartSlice";
 
 const Cart = () => {
   const dispatch = useDispatch();
-  const cartData = useSelector((state) => state.cart);
+  const cartData = useSelector((state) => state.cart.cartItem);
   const [data, setData] = useState();
+
+  const cartDataFetch = async (cartData) => {
+    await setData(cartData);
+  };
   useEffect(() => {
-    setData(cartData);
+    cartDataFetch(cartData);
   }, [cartData]);
 
   const handleRemove = (id) => {
@@ -34,7 +38,7 @@ const Cart = () => {
                 <p className="font-semibold ">Price: ${item.price}</p>
                 <MdDelete
                   className="float-right text-2xl my-1"
-                  onClick={() => handleRemove(item.id)}
+                  onClick={() => handleRemove(item)}
                 />
               </div>
             </div>
